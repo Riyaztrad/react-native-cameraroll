@@ -19,7 +19,9 @@
 #import <React/RCTConvert.h>
 #import <React/RCTLog.h>
 #import <React/RCTUtils.h>
-
+#import "RCTBridgeModule.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <UIKit/UIKit.h>
 #import "RNCAssetsLibraryRequestHandler.h"
 
 @implementation RCTConvert (PHAssetCollectionSubtype)
