@@ -650,10 +650,9 @@ static void checkPhotoLibraryConfig()
 
 
 RCT_EXPORT_METHOD(readImage:(NSString *)input
+                  options:(NSDictionary *)options
                   resolve:(RCTPromiseResolveBlock)resolve
-
-//callback:(RCTResponseSenderBlock)callback :(NSDictionary *)options
-)
+                  reject:(RCTPromiseRejectBlock)reject)
 {
   // Create NSURL from uri
   NSURL *url = [[NSURL alloc] initWithString:input];
@@ -674,12 +673,17 @@ RCT_EXPORT_METHOD(readImage:(NSString *)input
     // Convert to base64 encoded string
     NSString *base64Encoded = [imageData base64EncodedStringWithOptions:0];
     
-//    callback(@[base64Encoded]);
-    resolve(@[base64Encoded]);
+//    callback(@[c]);
+    resolve(@{
+        @"image": @{
+            @"base64":base64Encoded
+        }});
     
   } failureBlock:^(NSError *error) {
     NSLog(@"that didn't work %@", error);
+      reject(@"No asset found",@"No asset found",error);
   }];
 }
+
 
 @end
