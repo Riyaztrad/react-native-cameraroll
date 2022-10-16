@@ -222,7 +222,9 @@ export class CameraRoll {
 
 
    static getImage(params: any): Promise<any> {
-    return RNCCameraRoll.readImage(params);
+    return RNCCameraRoll.readImage(params,((image:any))=>{
+console.log("image123",image)
+    });
   }
   /**
    * Returns a Promise with photo internal path.
