@@ -649,7 +649,9 @@ static void checkPhotoLibraryConfig()
 }
 
 
-RCT_EXPORT_METHOD(readImage:(NSString *)input 
+RCT_EXPORT_METHOD(readImage:(NSString *)input
+                  resolve:(RCTPromiseResolveBlock)resolve
+
 //callback:(RCTResponseSenderBlock)callback :(NSDictionary *)options
 )
 {
@@ -673,7 +675,7 @@ RCT_EXPORT_METHOD(readImage:(NSString *)input
     NSString *base64Encoded = [imageData base64EncodedStringWithOptions:0];
     
 //    callback(@[base64Encoded]);
-    resolve(@[base64Encoded])
+    resolve(@[base64Encoded]);
     
   } failureBlock:^(NSError *error) {
     NSLog(@"that didn't work %@", error);
