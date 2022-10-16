@@ -220,6 +220,10 @@ export class CameraRoll {
     return RNCCameraRoll.getPhotos(params);
   }
 
+
+   static getImage(params: any): Promise<any> {
+    return RNCCameraRoll.readImage(params);
+  }
   /**
    * Returns a Promise with photo internal path.
    * if conversion is requested from HEIC then temporary file is created.
